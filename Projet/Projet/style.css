@@ -1,0 +1,142 @@
+<style>
+	body {
+			background-size: cover;
+			background-image: url('background_image.jpg');
+			font-family:Trebuchet MS;
+	}
+	p {
+		margin:10;
+	}
+	form {
+		margin:0;
+	}
+	.user_message_row {
+		margin-left: 5%;
+		margin-top:10;
+		margin-bottom:10;
+	}
+	.add_post {
+		border: 3px solid #5983b0;
+		border-radius:10px;
+		background-color: white;
+		padding: 14px 30px;
+		margin-left: 5%;
+		margin-bottom: 10;
+	}
+	.post_bloc {
+		border: 3px solid #5983b0;		
+		margin-left:5%;
+		margin-right:5%;
+		margin-bottom:20;
+		border-radius:5;		
+		background-color: white;
+	}
+	#pseudo_image {
+		border-radius: 50%;
+		border: 2px solid #5983b0;
+		width:40;
+		margin:5;
+	}
+	.post_pseudo {
+		display: flex;
+		align-items: center;
+	}
+	.post {
+		background-color: #dee6ef;
+		color: black;
+		border-top: 3px solid #5983b0;
+		padding: 10px;
+	}
+	#liked_button {
+		width:90;
+		background-color: #729fcf;
+		color: white;
+		border:4px solid #729fcf;
+		border-radius: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	#disliked_button {
+		width:90;
+		background-color: white;
+		color: black;
+		border:4px solid white;
+		border-radius: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	#answer_button {
+		width:90;
+		background-color: #d5d5d5;
+		border:4px solid #d5d5d5;
+		border-radius: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	.post_stats {
+		display:inline-block;
+		width:100;
+		text-align:center;
+	}
+	.answer {
+		border-top: 3px solid #5983b0;
+		color: black;
+	}
+	.answer_headline {
+		display: flex;
+		align-items: center;
+	}
+	.box_create_session {	
+		position: absolute;
+		top: 0;
+		bottom: 200;
+		left: 0;
+		right: 0;	
+		margin: auto;
+		width: 360px;
+		height: 180px;
+		border: 3px solid #5983b0;
+		padding: 15px;
+		background-color: #dee6ef;
+		border-radius: 5px;
+		font-family:Bell MT;
+		font-weight: bold;
+	}
+	.error_connection_message {
+		text-align:center;
+		color:#e16173;
+		
+		margin-bottom:20;
+	}
+	.input_session {
+		text-align:center;
+	}
+	.input_label_session {
+		margin-left:93;
+	}
+	#user {
+		margin-bottom:10;
+	}
+	.submit_session_row {
+		margin-top:30;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	#connect {
+		background-color: #729fcf;
+		color: white;
+		border:4px solid #729fcf;
+		border-radius: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	#register, #reset_session {
+		background-color: #b4c7dc;
+		color: white;
+		border:4px solid #b4c7dc;
+		border-radius: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+</style>
