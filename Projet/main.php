@@ -28,9 +28,20 @@
 	
 	include("link.create.post.html");
 	
-	$posts = new request_database($pdo, "SELECT u.pseudo, p.title, p.post_text, p.post_date, p.id_post, COUNT(l.id_user) AS count_like, COUNT(a.id_answer) AS count_answer  
-										FROM user as u, post AS p left join liker AS l ON l.id_post=p.id_post left join answer AS a ON a.id_post=p.id_post 
-										where u.id_user=p.id_user group BY p.id_post");
+	$posts = new request_database($pdo, "SELECT pseudo, title, post_text, post_date, a.id_post, count_like, count_answer, COUNT(id_user)
+										 FROM (
+										 SELECT pseudo, title, post_text, post_date, imb.id_post, count_like, COUNT(id_answer) AS count_answer
+										 FROM (
+										 SELECT u.pseudo, p.title, p.post_text, p.post_date, p.id_post, COUNT(l.id_user) AS count_like  
+										 FROM user as u, post AS p LEFT JOIN liker AS l ON l.id_post=p.id_post
+										 WHERE u.id_user=p.id_user 
+										 GROUP BY p.id_post) AS imb 
+										 LEFT JOIN answer AS a ON a.id_post=imb.id_post
+										 GROUP BY imb.id_post) AS a LEFT JOIN (
+										 SELECT id_post, id_user
+										 FROM liker
+										 WHERE id_user=".$_SESSION['id_user'].") AS b ON a.id_post=b.id_post
+										 GROUP BY id_post");
 	$posts->executer();
 	
 	foreach ($posts->getResult() as $post){

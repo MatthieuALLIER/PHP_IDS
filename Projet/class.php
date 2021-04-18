@@ -37,7 +37,9 @@
 		private $id_post;
 		private $count_like;
 		private $count_answer;
-		
+		private $is_liked;
+		private $like_button;
+		private $like_value;
 		
 		function __construct($post_row){
 			$this->user = current(array_slice($post_row, 0, 1));
@@ -47,6 +49,15 @@
 			$this->id_post = current(array_slice($post_row, 4, 1));
 			$this->count_like = current(array_slice($post_row, 5, 1));
 			$this->count_answer = current(array_slice($post_row, 6, 1));
+			$this->is_liked = current(array_slice($post_row, 7, 1));
+			if ($this->is_liked == 0) {
+				$this->like_button = 'disliked_button';
+				$this->like_value = 'Liker';
+				
+			}else{
+				$this->like_button = 'liked_button';
+				$this->like_value = 'Disliker';
+			}
 		}
 		public function getID(){
 			return $this->id_post;
@@ -61,6 +72,8 @@
 			$gab->assign_vars(array("id_post" => $this->id_post));
 			$gab->assign_vars(array("count_like" => $this->count_like));
 			$gab->assign_vars(array("count_answer" => $this->count_answer));
+			$gab->assign_vars(array("like_button" => $this->like_button));
+			$gab->assign_vars(array("like_value" => $this->like_value));
 			$gab->pparse("body");
 		}
 		

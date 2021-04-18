@@ -2,7 +2,7 @@
 <div class="post_bloc">
 	<div class="post_pseudo">
 		<img src="pseudo_image.jpg" id="pseudo_image">
-		{user}
+		<div style="font-size:16;font-weight:bold;">{user}</div>
 	</div>
 	<div class="post">
 		<p style="font-weight: bold;font-size:24;">{title}</p>
@@ -12,7 +12,7 @@
 			<div style="display:inline-block;">
 				<form action="save.like.php" method="get">
 					<input type="hidden" name="id_post" value="{id_post}" />
-					<input type="submit" value="Liker" class="{like_button}" />
+					<input type="submit" value="{like_value}" id="{like_button}" />
 				</form>
 			</div>
 			<div style="display:inline-block;">
