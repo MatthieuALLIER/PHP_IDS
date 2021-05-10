@@ -1,18 +1,22 @@
-<form action="save.post.php" method="post" enctype="multipart/form-data">
-	<fieldset>
-		<legend>Publication de post</legend>
+<div class="box_create_post">
+	<form action="save.post.php" method="post" enctype="multipart/form-data">
+		<div class="input_center">
+			<h2>Création de post</h2>
+		</div>
 		<p>
-			<label for="post_title">Titre : </label>
-			<input type="text" id="post_title" name="post_title">
+			<div class="input_left">Titre</div>
+			<div class="input_left">
+				<input type="text" id="post_title" name="post_title">
+			</div>
 		</p>
 		<p>
-			<label for="post_text">Texte : </label>
-			<textarea id="post_text" name="post_text" rows="4" cols="50"></textarea>
+			<div class="input_left">Texte</div>
+			<div class="input_left">
+				<textarea id="post_text" name="post_text" rows="10" cols="95"></textarea>
+			</div>
 		</p>
-		<p>
-			<label for="reset"><input type="reset" id="reset" value="Réinitialiser" /></label>
-			<label for="submit"><input type="submit" id="submit" value="Publier" /></label>
-		</p>
-		
-	</fieldset>
-</form>
+		<div class="submit_row">
+			<input type="submit" id="submit_post" value="Publier" />
+		</div>
+	</form>
+</div>

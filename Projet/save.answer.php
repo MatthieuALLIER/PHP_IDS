@@ -13,8 +13,9 @@
 	
 	$data = new formData($_POST);
 	$answer_ligne = $data->getPostData();
-	$text = current(array_slice($answer_ligne, 0, 1));
-	$id_post = current(array_slice($answer_ligne, 1, 1));
+	$text = $answer_ligne['answer_text'];
+	$id_post = $answer_ligne['id_post'];
+	$reference = $answer_ligne['reference'];
 	
 	$request_new_id = new request_database($pdo, "SELECT max(id_answer)+1 from answer");
 	$request_new_id->executer();
@@ -24,7 +25,7 @@
 	$date_new_answer = date('Y-m-d H:i:s');
 	
 	//Enregistrer en base
-	$save_post = new request_database($pdo, "INSERT INTO answer VALUES ('".$id_new_answer."','".$id_post."','".$_SESSION['id_user']."','".$text."','".$date_new_answer."')");
+	$save_post = new request_database($pdo, "INSERT INTO answer VALUES ('".$id_new_answer."','".$id_post."','".$reference."','".$_SESSION['id_user']."','".$text."','".$date_new_answer."')");
 	$save_post->executer();
 	
 	header('Location: main.php');
