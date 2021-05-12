@@ -1,22 +1,22 @@
-<div class="box_create_session">
-	<div class="error_connection_message">{error_message}</div>
-	<form action="save.session.php" method="post" enctype="multipart/form-data">
-			<div class="input_center">
-				Pseudo
-			</div>
-			<div class="input_center">
-				<input type="" id="user" name="user">
-			</div>
-			<div class="input_center">
-				Mot de passe
-			</div>
-			<div class="input_center">
-				<input type="password" id="passwd" name="passwd">
-			</div>
-			<div class="submit_row">
-					<input type="submit" id="connect" name="submit" value="Connexion" />
-					<input type="submit" id="register" name="submit" value="Inscription" />
-					<input type="reset" id="reset_session" value="Réinitialiser" />
-			</div>
-	</form>
-</div>
+        <!-- form.session.html-->
+        <div class="box_create_session">
+        	<div class="error_connection_message">{error_message}</div><!--Message d'erreur si besoin-->
+        	<form action="save.session.php" method="post" enctype="multipart/form-data"><!--Envoi vers save.session.php-->
+    			<div class="input_center">
+    				Pseudo
+    			</div>
+    			<div class="input_center">
+    				<input type="" id="user" name="user"><!--Champ pseudo-->
+    			</div>
+    			<div class="input_center">
+    				Mot de passe
+    			</div>
+    			<div class="input_center">
+    				<input type="password" id="passwd" name="passwd"><!--Champ mot de passe-->
+    			</div>
+    			<div class="submit_row">
+    					<input type="submit" id="connect" name="submit" value="Connexion" /><!--Bouton de connexion-->
+    					<input type="submit" id="register" name="submit" value="Inscription" /><!--Bouton de publication'inscription-->
+    			</div>
+        	</form>
+        </div>

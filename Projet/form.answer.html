@@ -1,16 +1,21 @@
-<div class="box_create_answer">
-	<form action="save.answer.php" method="post" enctype="multipart/form-data">
-		<div class="input_center">
-			<h2>Publication de réponse</h2>
-		</div>
-			<p>
-				<label for="answer_text">Texte : </label>
-				<textarea id="answer_text" name="answer_text" rows="10" cols="95"></textarea>
-			</p>
-			<p>
-				<input type="hidden" name="id_post" value="{id_post}" />
-				<input type="hidden" name="reference" value="{reference}" />
-				<input type="submit" id="submit_answer" value="Publier la réponse" />
-			</p>
-	</form>
-</div>
+        <!--form.answer.html-->
+        <div class="box_create_answer">
+        	<form action="save.answer.php" method="post" enctype="multipart/form-data"><!--Envoi vers save.answer.php-->
+        		<div class="input_center">
+        			<h2>Publication de réponse</h2>
+        		</div>
+        			<p>
+        			    <!--Champs visibles :-->
+        				<label for="answer_text">Texte : </label>
+        				<textarea id="answer_text" name="answer_text" rows="10" cols="95"></textarea><!--Texte de la réponse-->
+        			</p>
+        			<p>
+        			    <!--Champs cachés :-->
+        				<input type="hidden" name="id_post" value="{id_post}" /><!--ID du post-->
+        				<input type="hidden" name="reference" value="{reference}" /><!--ID de la réponse-->
+        				<div class="submit_row">
+        					<input type="submit" id="submit_answer" value="Publier la réponse" /><!--Bouton de publication-->
+        				</div>
+        			</p>
+        	</form>
+        </div>

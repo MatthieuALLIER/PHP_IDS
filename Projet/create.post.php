@@ -1,16 +1,20 @@
 <?php
-	session_set_cookie_params(0);
+	// Récupération de la session en cours
 	session_start();
 	
-	include('class.php');
+	// Inclusion des fichiers génériques
+	include("class.php");
 	include("style.css");
 	
+	// Création Rapide du haut de page
 	include("entete.sup.html");
 	echo "Publication";
 	include("entete.inf.html");
 	include('show.user.php');
 	
+	// Affichage du formulaire form.post.html
 	include("form.post.html");
 	
+	// Inclusion du pie de page
 	include("pied.inc.html");
 ?>

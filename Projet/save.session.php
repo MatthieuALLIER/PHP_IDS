@@ -1,22 +1,30 @@
 <?php
+    // Récupération de la session en cours
 	session_start();
 	
-	include("connect.inc.php");	
+	// Préparation de la redirection
+	header('Location: index.php');
+	
+	// Inclusion des fichiers génériques
+	include("connect.inc.php");
 	include("class.php");
 	
+	// Connexion à la base donnée
 	try{
-	$pdo = new PDO('mysql:host='.$dbhost.';port='.$dbport.';dbname='.$db.'', $dbuser, $dbpasswd);
+	$pdo = new PDO('mysql:host='.$dbhost.';dbname='.$db.'', $dbuser, $dbpasswd);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}catch(PDOExeption $error){
 		echo $error->getMessage();
 	}
 	
+	// Récupération des données du formulaire de la page create.session.php
 	$data = new formData($_POST);
 	$session_ligne = $data->getPostData();
 	$pseudo = $session_ligne['user'];
 	$passwd = $session_ligne['passwd'];
 	$type = $session_ligne['submit'];	
 	
+	// Recherche le pseudo entré dans la BDD
 	$save_session = new request_database($pdo, "SELECT * from user where pseudo='".$pseudo."'");
 	$save_session->executer();
 	
@@ -65,6 +73,7 @@
 			header('Location: create.session.php');
 			exit();
 		}else{
+		    //Si le pseudo existe déja
 			if ($save_session->existResult() == 'true'){
 				//Affiche une erreur et réaffiche la page de connexion
 				$_SESSION = array();
@@ -72,13 +81,14 @@
 				$_SESSION['connection_message'] = "Le pseudo est déjà utilisé";
 				header('Location: create.session.php');
 				exit();
+			//Si le pseudo est libre
 			}else{
 				//Récupération d'un nouvel ID pour l'user
 				$request_new_id = new request_database($pdo, "SELECT max(id_user)+1 from user");
 				$request_new_id->executer();
 				$id_new_user = $request_new_id->getIndex();
 				
-				//Enregistrement du nouveau user en base
+				//Enregistrement du nouvel utilisateur en base
 				$save_post = new request_database($pdo, "INSERT INTO user VALUES ('".$id_new_user."','".$pseudo."','".$passwd."')");
 				$save_post->executer();
 				
@@ -90,6 +100,6 @@
 		}
 	}
 	
-	header('Location: main.php');
+	// Redirection vers la page d'accueil
 	exit();
 ?>
